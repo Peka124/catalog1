@@ -65,6 +65,8 @@ return [
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
 
+        Illuminate\Hashing\HashServiceProvider::class,
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -140,6 +142,9 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
         ],
+
+        Illuminate\Hashing\HashServiceProvider::class,
     ],
+    
     
 ];
