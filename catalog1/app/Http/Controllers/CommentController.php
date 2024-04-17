@@ -10,9 +10,9 @@ class CommentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'text' => 'required',
+            'name' => 'required|string|max:150',
+            'email' => 'required|email|max:80',
+            'text' => 'required|string|min:20',
         ]);
 
         Comment::create($request->all());

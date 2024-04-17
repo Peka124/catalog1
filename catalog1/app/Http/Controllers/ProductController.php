@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use App\Models\Product;
 
 class ProductController extends Controller
@@ -20,8 +21,8 @@ class ProductController extends Controller
     public function store(Request $requset)
     {
         $request->validate([
-            "name"=>"required",
-            "description"=>"required",
+            "name"=>"required|string|max:150",
+            "description"=>"required|string|min:20",
         ]);
 
         Product::create($request->all());
@@ -38,8 +39,8 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $request->validate([
-            'name'=>"required",
-            "description"=>"required",
+            'name'=>["required", "string", "max:255", Rule::unique("products")->ignore($product->id)],
+            "description"=>"required|string|min:20",
         ]);
 
         $product->update($request->all());
