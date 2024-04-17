@@ -1,0 +1,28 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.metrics {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.metric {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+}
+
+.metric .value {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.metric .label {
+    margin-top: 10px;
+    color: #666;
+}
